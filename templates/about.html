@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}{{page_title}} -{% endblock %}
+{% block title %}{{ about_title }}{% endblock %}
+
+{%block sidebar_block%}<a href="/">Home</a><br /><p></p>{% endblock%}
+
+{% block body_block %}
+    
+       <h1>Apes Web Application </h1>
+       <h3>Web Application Development with Python and Django V1.8 </h3></h3> <p></p>
+       <ul><h3>Dependencies:</h3></ul>
+        {% for dependency in dependency_list %}
+            <ul>{{dependency}}</ul>
+        {% endfor %}
+
+            <p></p>
+        <strong>{{ about_message }}</strong><br />
+        
+        <img alt = "Picture" src={% static "images/pythonpic.jpg" %}/>
+        
+ {% endblock %}

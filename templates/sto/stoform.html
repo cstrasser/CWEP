@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+    
+{%block page_title %} {{page_title}}  {%endblock%}
+
+
+{%block  sidebar_block %} <h4><a href="/sto">Main</a><br /><p></p></h4>{% endblock %}
+
+{% block body_block%}
+
+        <h1>{{stid}} {{customer_name}}</h1>
+
+        <form id="STOForm" method="post" action="">
+            <input type="submit" name="submit" value="Save" />
+            <input type="submit" name="cancel" formaction="/sto/" value="Cancel" /><p></p>
+            {% csrf_token %}
+            Project {{form.project}} Date Entered - {{form.entrydate|truncatechars_html:10}}
+            Manager {{form.person_responsible}}  <p></p>
+            
+           Contact <strong>{{contact}} {% if contact != 'none' %}() {%endif%}</strong>
+           Tel.{{form.phone}} ref{{form.reference}}<p></p>
+    <hr>
+          
+            <table>
+            <tr><p>{{form.add1}} </p></tr> 
+            <tr><p>{{form.add2}}</p> </tr>
+            <p>{{form.add3}}</p> </table>
+            <p>{{form.city}}{{form.state}}{{form.stzip}}</p>
+            
+            <hr>
+            <p>Tag{{form.tag|ljust:"50"}} Eml{{form.email}}</p>
+            <p>{{form.billing}}
+            {{form.stid}}
+            Status {{form.status}}</p>
+            
+
+           
+        </form>
+        
+{% endblock%}

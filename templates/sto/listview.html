@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+    
+{%block page_title %} {{page_title}}  {%endblock%}
+
+
+{%block  sidebar_block %} <h4><a href="/">Main</a><br /><p></p></h4>{% endblock %}
+
+{% block body_block%}
+   {{count}} Items found
+  <div class="span8">
+    <input type="submit" name="New" formaction="/sto/" value="New STO" /><p></p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>STO#</th>
+          <th>Poject</th>
+          <th>Customer</th>
+          <th>Notes</th>
+          <th>Assigned</th>
+          <th>Date Opened</th>
+          <th>Status</th>
+          <th>Billing</th>
+        </tr>
+      </thead>
+  </div>
+      <tbody>
+        <tr>
+          
+        {% for item  in list %}
+            {% if item.project %}
+            <td><a href="{{ item.stid }}">{{item.stid}}</a></td>
+            <td>{{item.project}}</td>
+            <td>{{item.customer_location.customer}}</td>
+            <td>{{item.notes}}</td>
+            <td>{{item.person_responsible}}</td>
+            <td>{{item.entrydate|date:'M-d-y'}}</td>
+          <td>{{item.status}}</td>
+          <td>{{item.billing}}</td>  
+          </tr>
+       
+           {% endif %}
+         
+        {% endfor %}
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+  
+ {%endblock%}
