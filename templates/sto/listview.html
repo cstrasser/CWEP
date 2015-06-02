@@ -7,8 +7,11 @@
 {%block  sidebar_block %} <h4><a href="/">Main</a><br /><p></p></h4>{% endblock %}
 
 {% block body_block%}
-   {{count}} Items found
-  <div class="span8">
+  <div class= "page-header"><form class="form-inline">
+    <input type="text" class="form-control" id="search" placeholder="Search">
+    <button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-search"></span></button>
+  </form> <{{count}} Items found </div>
+  <div class="span9">
     <input type="submit" name="New" formaction="/sto/" value="New STO" /><p></p>
     <table class="table table-striped">
       <thead>
@@ -17,10 +20,33 @@
           <th>Poject</th>
           <th>Customer</th>
           <th>Notes</th>
-          <th>Assigned</th>
+          <th id= "assigned">Assigned</th>
           <th>Date Opened</th>
-          <th>Status</th>
-          <th>Billing</th>
+          <th class= "dropdown" >
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle" placeholder=".col-xs-3">Status  <b class="caret"></b></a>
+                  <ul class="dropdown-menu" id='status'>
+                    <li> <h5 class= "text-center">Active</h5></li>
+
+                    <li><h5 class = "text-center">Closed</h5></li>
+                  </ul>        
+          </th>
+          
+          <th class= "dropdown" id='billtype'>
+             <a href="#" data-toggle="dropdown" class="dropdown-toggle">Billing<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+
+                    <li><a href="#">Warranty</a></li>
+
+                    <li><a href="#">Rental</a></li>
+                    
+                    <li><a href="#">System</a></li>
+
+                    <li class="divider"></li>
+
+                    <li><a href="#">Bill</a></li>
+
+                </ul>
+          </th>
         </tr>
       </thead>
   </div>

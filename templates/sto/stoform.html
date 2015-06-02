@@ -14,22 +14,37 @@
             <input type="submit" name="submit" value="Save" />
             <input type="submit" name="cancel" formaction="/sto/" value="Cancel" /><p></p>
             {% csrf_token %}
-            Project {{form.project}} Date Entered - {{form.entrydate|truncatechars_html:10}}
+            Project {{form.project}} Date Entered - {{form.entrydate}}
             Manager {{form.person_responsible}}  <p></p>
             
            Contact <strong>{{contact}} {% if contact != 'none' %}() {%endif%}</strong>
-           Tel.{{form.phone}} ref{{form.reference}}<p></p>
+           Tel.{{form.phone}} ref{{form.reference}}<p></p><p>{{ form.notes}}</p>
     <hr>
           
+            <!--<table>-->
+            <!--<tr>{{form.add1}}<td>City</td> <td>{{form.city}}</td></tr> -->
+            <!--<tr><p>{{form.add2}} State/Prov {{form.state}}</p> </tr>-->
+            <!--<tr><p>{{form.add3}} Zip/PC {{form.stzip}} </p> </tr>-->
+            <!--</table>-->
+            <!--<p></p>-->
             <table>
-            <tr><p>{{form.add1}} </p></tr> 
-            <tr><p>{{form.add2}}</p> </tr>
-            <p>{{form.add3}}</p> </table>
-            <p>{{form.city}}{{form.state}}{{form.stzip}}</p>
+            <tr>{{form.add1}} </tr><tr> City    </tr> <tr>{{form.city}}</tr>
+            <p></p>
+            <tr>{{form.add2}} State/Prov {{form.state}} </tr><p></p>
+            <tr>{{form.add3}} Zip/PC {{form.stzip}} </p> </tr>
+            
+            
+            
+            
+            </table>
+            
+            
+            
             
             <hr>
-            <p>Tag{{form.tag|ljust:"50"}} Eml{{form.email}}</p>
-            <p>{{form.billing}}
+            <p>Tag{{form.tag|ljust:"50"}}</p>
+            <p>Email{{form.email}}</p>
+            <p>Billing Type{{form.billing}}
             {{form.stid}}
             Status {{form.status}}</p>
             

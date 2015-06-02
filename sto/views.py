@@ -3,8 +3,8 @@ from sto.models import STO , Customer, Contact, LocationMaster
 from sto.forms import STOForm
 
 
-def sto_list(request):
-        sto_list = STO.objects.filter(status = 'Active', stid__lte=20239).select_related('customer_location__customer') #stid__lte 20239 to fix database error 
+def sto_list(request, status = 'Active'):
+        sto_list = STO.objects.filter(status = status, stid__lte=20239).select_related('customer_location__customer') #stid__lte 20239 to fix database error 
         count = sto_list.count()
         context ={'list': sto_list, 'count': count}
         return render(request, 'sto/listview.html', context)
