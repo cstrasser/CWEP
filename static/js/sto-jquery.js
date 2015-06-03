@@ -1,17 +1,11 @@
 $(document).ready(function() {
+ 
+ $("#status").on('click', 'li', function(){
+    var stat =$(this).text();
+    //alert(stat );
+    //$.get('/sto/listview/',  function(stat){
+   
+});           
+      
+    });
 
-//alert("TEst");
- $('.dropdown-menu').on('click','status',function(){
-        var status;
-       
-        status = $(this).val();
-        alert("Got to here" );
-        $.get('/sto/listview/', {status: status}, function(data){
-         
-                // $('#cats').html(data);
-        });
-});   
-
-$("#assigned").on("click",function(){alert("Assigned");});
-
-});

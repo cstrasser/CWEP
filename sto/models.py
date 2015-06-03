@@ -16,7 +16,8 @@ class Customer(models.Model):
         db_table = 'tblS_Customers'
     
     def __str__(self):
-        return self.name
+       #return self.name
+       return unicode(self.name).encode('utf-8')
     
 class LocationMaster(models.Model):
     location_id = models.AutoField(db_column='CusLocID', primary_key=True)  
@@ -70,8 +71,10 @@ class LocationMaster(models.Model):
         db_table = 'tblS_CusLocMaster'
     
     def __str__(self):
-        return '%s %s %s %s' %(self.addr1, self.addr2, self.city, self.country)    
-    
+       #return '%s %s %s %s %s' %(self.addr1, self.addr2, self.city, self.country, Customer.customer)    
+        #return '%s %s %s %s ' %(self.addr1, self.addr2, self.city, self.country) # original line that works
+        q= '%s %s %s %s ' %(self.addr1, self.addr2, self.city, self.country)
+        return unicode(q).encode('utf-8')
     
 class Contact(models.Model):
     contact_id = models.AutoField(db_column='CC_ConID', primary_key=True)  

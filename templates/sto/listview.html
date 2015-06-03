@@ -16,19 +16,31 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>STO#</th>
-          <th>Poject</th>
-          <th>Customer</th>
-          <th>Notes</th>
-          <th id= "assigned">Assigned</th>
-          <th>Date Opened</th>
-          <th class= "dropdown" >
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle" placeholder=".col-xs-3">Status  <b class="caret"></b></a>
-                  <ul class="dropdown-menu" id='status'>
-                    <li> <h5 class= "text-center">Active</h5></li>
-
-                    <li><h5 class = "text-center">Closed</h5></li>
-                  </ul>        
+          <th style="width:10px">STO#</th>
+          <th style="width:10px">Poject</th>
+          <th style="width:15px">Customer</th>
+          <th style="width:500px">Notes</th>
+          <th style="width:15px">Assigned</th>
+          <th style="width:10px">Date Opened</th>
+          <th style="width:75px">
+            <!--<a href="#" data-toggle="dropdown" class="dropdown-toggle" placeholder=".col-xs-3">Status  <b class="caret"></b></a>-->
+            <!--      <ul class="dropdown-menu" id='status'>-->
+            <!--        <li> <h5 class= "text-center">Active</h5></li>-->
+            <!---->
+            <!--        <li><h5 class = "text-center">Closed</h5></li>-->
+            <!--      </ul>        -->
+             <div class="dropdown">
+    <!--<button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Status
+    <span class="caret"></span> </button>-->
+    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Status<b class="caret"></b></a>
+    <ul id ="status" class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="/sto/filter/Active">Active</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="/sto/filter/Closed">Closed</a></li>
+      
+    </ul>
+  </div>
+            
+            
           </th>
           
           <th class= "dropdown" id='billtype'>

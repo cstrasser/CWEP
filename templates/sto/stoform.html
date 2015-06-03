@@ -8,13 +8,13 @@
 
 {% block body_block%}
 
-        <h1>{{stid}} {{customer_name}}</h1>
+        <h1>{{stid}} {{customer_name}}<h6>  new {{form.entrydate}}</h6></h1>
 
         <form id="STOForm" method="post" action="">
             <input type="submit" name="submit" value="Save" />
             <input type="submit" name="cancel" formaction="/sto/" value="Cancel" /><p></p>
             {% csrf_token %}
-            Project {{form.project}} Date Entered - {{form.entrydate}}
+            Project {{form.project}} 
             Manager {{form.person_responsible}}  <p></p>
             
            Contact <strong>{{contact}} {% if contact != 'none' %}() {%endif%}</strong>
@@ -28,10 +28,15 @@
             <!--</table>-->
             <!--<p></p>-->
             <table>
-            <tr>{{form.add1}} </tr><tr> City    </tr> <tr>{{form.city}}</tr>
-            <p></p>
-            <tr>{{form.add2}} State/Prov {{form.state}} </tr><p></p>
-            <tr>{{form.add3}} Zip/PC {{form.stzip}} </p> </tr>
+            <tr>
+               <td>{{form.add1}} City<td> {{form.city}}</td>
+            </tr>
+            <tr>
+              <td> {{form.add2}} State/Prov <td> {{form.state}}</td>
+            </tr>
+            <tr>
+              <td> {{form.add3}} Zip/PC <td> {{form.stzip}}</td>
+            </tr>
             
             
             

@@ -4,11 +4,13 @@ from sto.forms import STOForm
 
 
 def sto_list(request, status = 'Active'):
+        print status
         sto_list = STO.objects.filter(status = status, stid__lte=20239).select_related('customer_location__customer') #stid__lte 20239 to fix database error 
         count = sto_list.count()
         context ={'list': sto_list, 'count': count}
         return render(request, 'sto/listview.html', context)
-
+        
+                
 
 def sto_form(request, stid ):
         sto = get_object_or_404(STO, pk=stid)
