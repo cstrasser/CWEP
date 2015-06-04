@@ -4,10 +4,14 @@ from sto.forms import STOForm
 
 
 def sto_list(request, status = 'Active'):
-        print status
         sto_list = STO.objects.filter(status = status, stid__lte=20239).select_related('customer_location__customer') #stid__lte 20239 to fix database error 
         count = sto_list.count()
-        context ={'list': sto_list, 'count': count}
+        context ={'list': sto_list, 'count': count, 'filters': {'status':['Active','Closed'],'billing':['rental','warranty']}}
+        #future when list view is called send list of filterables (filters above)to show in the search dropdown
+        
+        for filter in context['filters']:
+                print filter
+                    
         return render(request, 'sto/listview.html', context)
         
                 

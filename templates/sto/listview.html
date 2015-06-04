@@ -3,66 +3,82 @@
     
 {%block page_title %} {{page_title}}  {%endblock%}
 
-
+{% block page_header%}
+<div class="container-fluid"><!-- KEEP MAIN DESIGN-->
+<div class="col-md-1"><!-- KEEP MAIN DESIGN-->
+</div><!--KEEP Base design div sidebar-->
+<div class="col-md-11"> <!-- KEEP MAIN DESIGN-->
+ 
+ <div class="row">
+    
+  <div class="col-lg-4">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search" aria-label="...">
+     
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          <span class="caret"></span></button>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+        <button type="button" class="btn btn-info">New STO</button>
+      </div><!-- /btn-group -->
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+  
+      
+</div><!--KEEP Base designcol md 11 main header large column area -->
+</div> <!-- KEEP BASE DESIGN Container Fluid main header container-->
+  
+{% endblock %}
+  
 {%block  sidebar_block %} <h4><a href="/">Main</a><br /><p></p></h4>{% endblock %}
-
 {% block body_block%}
-  <div class= "page-header"><form class="form-inline">
-    <input type="text" class="form-control" id="search" placeholder="Search">
-    <button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-search"></span></button>
-  </form> <{{count}} Items found </div>
-  <div class="span9">
-    <input type="submit" name="New" formaction="/sto/" value="New STO" /><p></p>
+    
+    <div class="row-fluid">
     <table class="table table-striped">
       <thead>
         <tr>
-          <th style="width:10px">STO#</th>
-          <th style="width:10px">Poject</th>
-          <th style="width:15px">Customer</th>
-          <th style="width:500px">Notes</th>
-          <th style="width:15px">Assigned</th>
-          <th style="width:10px">Date Opened</th>
-          <th style="width:75px">
-            <!--<a href="#" data-toggle="dropdown" class="dropdown-toggle" placeholder=".col-xs-3">Status  <b class="caret"></b></a>-->
-            <!--      <ul class="dropdown-menu" id='status'>-->
-            <!--        <li> <h5 class= "text-center">Active</h5></li>-->
-            <!---->
-            <!--        <li><h5 class = "text-center">Closed</h5></li>-->
-            <!--      </ul>        -->
+          <th class=col-sm-1>STO#</th>
+          <th class=col-sm-1>Poject</th>
+          <th class=col-sm-1>Customer</th>
+          <th class=col-sm-4>Notes</th>
+          <th class=col-sm-1>Assigned</th>
+          <th class=col-sm-1>Date Opened</th>
+          <th class=col-sm-1>
              <div class="dropdown">
-    <!--<button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Status
-    <span class="caret"></span> </button>-->
-    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Status<b class="caret"></b></a>
-    <ul id ="status" class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="/sto/filter/Active">Active</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="/sto/filter/Closed">Closed</a></li>
-      
-    </ul>
-  </div>
-            
-            
+             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+             Status
+             <span class="caret"></span></button>
+              <ul id ="status" class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                 <li role="presentation"><a role="menuitem" tabindex="-1" href="/sto/filter/Active">Active</a></li>
+                 <li role="presentation"><a role="menuitem" tabindex="-1" href="/sto/filter/Closed">Closed</a></li>
+              </ul>
           </th>
-          
-          <th class= "dropdown" id='billtype'>
-             <a href="#" data-toggle="dropdown" class="dropdown-toggle">Billing<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-
-                    <li><a href="#">Warranty</a></li>
-
-                    <li><a href="#">Rental</a></li>
-                    
-                    <li><a href="#">System</a></li>
-
-                    <li class="divider"></li>
-
-                    <li><a href="#">Bill</a></li>
-
-                </ul>
+            
+            
+            
+            
+            
+            
+            
+           
+          <th class=col-sm-1>
+           <a href="#" data-toggle="dropdown" class="dropdown-toggle">Billing<b class="caret"></b></a>
+           <ul id ="billing" class="dropdown-menu" role="menu" aria-labelledby="menu1">
+               <li role="presentation"><a role="menuitem" tabindex="-1" href="/sto/filter/Active">Rental</a></li>
+               <li role="presentation"><a role="menuitem" tabindex="-1" href="/sto/filter/Closed">Warranty</a></li>
           </th>
         </tr>
       </thead>
-  </div>
+    </div>
       <tbody>
+    
         <tr>
           
         {% for item  in list %}
