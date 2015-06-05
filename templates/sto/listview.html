@@ -13,25 +13,28 @@
     
   <div class="col-lg-4">
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search" aria-label="...">
+      <input type="text" class="form-control" placeholder="Search" aria-label="..." id ="search_item">
      
       <div class="input-group-btn">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
           <span class="caret"></span></button>
         <ul class="dropdown-menu dropdown-menu-right" role="menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
+          <li role="presentation" class="dropdown-header">Status</li>
+          <li><a href="/sto/filter/Active">Active</a></li>
+          <li><a href="/sto/filter/Closed">Closed</a></li>
           <li class="divider"></li>
-          <li><a href="#">Separated link</a></li>
+          <li role="presentation" class="dropdown-header" >Billing</li>
+          <li><a href="#" id= "rental_filter">Rental</a></li>
+          <li><a href="#" id= "warranty_filter">Warranty</a></li>
+          <li><a href="#" id= "bill_filter">Bill</a></li>
         </ul>
         <button type="button" class="btn btn-info">New STO</button>
       </div><!-- /btn-group -->
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
 </div><!-- /.row -->
-  
-      
+
+     
 </div><!--KEEP Base designcol md 11 main header large column area -->
 </div> <!-- KEEP BASE DESIGN Container Fluid main header container-->
   
@@ -41,7 +44,7 @@
 {% block body_block%}
     
     <div class="row-fluid">
-    <table class="table table-striped">
+    <table class="table table-striped" id ="mytable">
       <thead>
         <tr>
           <th class=col-sm-1>STO#</th>
@@ -50,30 +53,8 @@
           <th class=col-sm-4>Notes</th>
           <th class=col-sm-1>Assigned</th>
           <th class=col-sm-1>Date Opened</th>
-          <th class=col-sm-1>
-             <div class="dropdown">
-             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-             Status
-             <span class="caret"></span></button>
-              <ul id ="status" class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                 <li role="presentation"><a role="menuitem" tabindex="-1" href="/sto/filter/Active">Active</a></li>
-                 <li role="presentation"><a role="menuitem" tabindex="-1" href="/sto/filter/Closed">Closed</a></li>
-              </ul>
-          </th>
-            
-            
-            
-            
-            
-            
-            
-           
-          <th class=col-sm-1>
-           <a href="#" data-toggle="dropdown" class="dropdown-toggle">Billing<b class="caret"></b></a>
-           <ul id ="billing" class="dropdown-menu" role="menu" aria-labelledby="menu1">
-               <li role="presentation"><a role="menuitem" tabindex="-1" href="/sto/filter/Active">Rental</a></li>
-               <li role="presentation"><a role="menuitem" tabindex="-1" href="/sto/filter/Closed">Warranty</a></li>
-          </th>
+          <th class=col-sm-1>Status</th>
+          <th class=col-sm-1>Billing</th>
         </tr>
       </thead>
     </div>
@@ -83,14 +64,14 @@
           
         {% for item  in list %}
             {% if item.project %}
-            <td><a href="{{ item.stid }}">{{item.stid}}</a></td>
+            <td><a href="{{ item.stid }}" class = "stoitem">{{item.stid}}</a></td>
             <td>{{item.project}}</td>
             <td>{{item.customer_location.customer}}</td>
             <td>{{item.notes}}</td>
             <td>{{item.person_responsible}}</td>
             <td>{{item.entrydate|date:'M-d-y'}}</td>
           <td>{{item.status}}</td>
-          <td>{{item.billing}}</td>  
+          <td id= "billtype">{{item.billing}}</td>  
           </tr>
        
            {% endif %}

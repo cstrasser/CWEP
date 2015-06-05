@@ -1,0 +1,36 @@
+var hiddenElements = $( "body" ).find( ":hidden" ).not( "script" );
+ 
+$( "span:first" ).text( "Found " + hiddenElements.length + " hidden elements total." );
+$( "div:hidden" ).show( 3000 );
+$( "span:last" ).text( "Found " + $( "input:hidden" ).length + " hidden inputs." );
+
+//var code = e.keyCode || e.which;
+// if(code == 13) { //Enter keycode
+//   //Do something
+// }
+
+$(".stoitem, td").toggle(function() {
+  return refine == "All" || $("td:eq(7)", this).text() == refine
+  
+  
+  
+  
+    $("#search_item").on('keyup',function(){
+      //$(".stoitem").closest('tr').hide();
+      //$(".stoitem, td").hide();
+      var search =$(this).val();
+     $(function(){
+    
+    $("table tr td").filter(function() {
+        return $(this).text() == search;
+    }).parent('tr').css('color','red');
+});
+     
+     
+      $( ".stoitem, tr" ).each(function( i ) {
+    if ( this.style.color !== "green" ) {
+      this.style.color = "green";
+    } else {
+      this.style.color = "";
+      }
+  });  
