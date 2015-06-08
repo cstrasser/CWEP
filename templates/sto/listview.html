@@ -4,7 +4,7 @@
 {%block page_title %} {{page_title}}  {%endblock%}
 
 {% block page_header%}
-<div class="container-fluid"><!-- KEEP MAIN DESIGN-->
+<div class="page_head container-fluid"><!-- KEEP MAIN DESIGN-->
 <div class="col-md-1"><!-- KEEP MAIN DESIGN-->
 </div><!--KEEP Base design div sidebar-->
 <div class="col-md-11"> <!-- KEEP MAIN DESIGN-->
@@ -60,10 +60,12 @@
     </div>
       <tbody>
     
-        <tr>
+        
           
         {% for item  in list %}
             {% if item.project %}
+          <div class = 'stolist'>
+           <tr> 
             <td><a href="{{ item.stid }}" class = "stoitem">{{item.stid}}</a></td>
             <td>{{item.project}}</td>
             <td>{{item.customer_location.customer}}</td>
@@ -71,9 +73,9 @@
             <td>{{item.person_responsible}}</td>
             <td>{{item.entrydate|date:'M-d-y'}}</td>
           <td>{{item.status}}</td>
-          <td id= "billtype">{{item.billing}}</td>  
+          <td>{{item.billing}}</td>  
           </tr>
-       
+       </div> <!-- stolist-->
            {% endif %}
          
         {% endfor %}

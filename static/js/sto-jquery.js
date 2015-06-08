@@ -1,5 +1,19 @@
 $(document).ready(function() {
 
+//http://stackoverflow.com/questions/9127498/how-to-perform-a-real-time-search-and-filter-on-a-html-table
+//http://jsfiddle.net/7BUmG/2/
+    
+var $rows = $('#mytable tr');
+$('#search_item').keyup(function() {
+    var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+    
+    $rows.show().filter(function() {
+        var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+        return !~text.indexOf(val);
+    }).hide();
+});
+   
+   
  $("#rental_filter").on('click',function(){
  // $(".stoitem, td").hide();
    //$( ".stoitem, td" ).each(function( i ) {
@@ -14,9 +28,9 @@ $(document).ready(function() {
   });  
 });
     
-   
-    //$.get('/sto/listview/',  function(stat){  
- 
+    
+    
+  
  
  $("#warranty_filter").on('click',function(){
     //default each row to visible
@@ -33,29 +47,29 @@ $(document).ready(function() {
     $(".stoitem, td").hide()    
 });
  
- 
+
   
       
             
     }); //doc ready 
 
-//http://stackoverflow.com/questions/15688147/hide-row-in-table-based-on-td-cell-in-another-row-using-jquery
-//https://api.jquery.com/category/traversing/filtering/
-// }).parent('tr').css('color','red');
 
-//var code = e.keyCode || e.which;
-// if(code == 13) { //Enter keycode
-//   //Do something
-// }
-
-//http://stackoverflow.com/questions/12385343/jquery-show-hide-table-rows-based-on-cell-content   
-     
-      
-      //alert($(".stoitem").parent('a').val);
-     // $( "li" ).not( ":even" ).css( "background-color", "red" );
-     // $( ".stoitem, tr:contains('201')" ).show('tr');
-      //$( "td:contains('20190')" ).show();
-
+//Commission
+//Upkeep
+//No Charge
+//Project
+//Non-Bill
+//Bill
+//System
+//Sales
+//Contract
+//Unknown
+//Included
+//Warranty
+//Unkown
+//Rental
+//Telemetry
+//RMA
 
 
 

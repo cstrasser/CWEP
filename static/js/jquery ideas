@@ -1,3 +1,29 @@
+
+Searches============================================================================================
+$("#search-criteria").on("keyup", function() {
+    var g = $(this).val().toLowerCase();
+    $(".fbbox .fix label").each(function() {
+        var s = $(this).text().toLowerCase();
+        $(this).closest('.fbbox')[ s.indexOf(g) !== -1 ? 'show' : 'hide' ]();
+    });
+});?
+http://stackoverflow.com/questions/14031369/how-to-implement-search-function-using-javascript-or-jquery
+
+
+
+
+
+
+
+
+
+
+
+
+
+Filters =============================================================================
+
+
 var hiddenElements = $( "body" ).find( ":hidden" ).not( "script" );
  
 $( "span:first" ).text( "Found " + hiddenElements.length + " hidden elements total." );
@@ -33,4 +59,22 @@ $(".stoitem, td").toggle(function() {
     } else {
       this.style.color = "";
       }
-  });  
+  });
+  
+  
+  //http://stackoverflow.com/questions/15688147/hide-row-in-table-based-on-td-cell-in-another-row-using-jquery
+//https://api.jquery.com/category/traversing/filtering/
+// }).parent('tr').css('color','red');
+
+//var code = e.keyCode || e.which;
+// if(code == 13) { //Enter keycode
+//   //Do something
+// }
+
+//http://stackoverflow.com/questions/12385343/jquery-show-hide-table-rows-based-on-cell-content   
+     
+      
+      //alert($(".stoitem").parent('a').val);
+     // $( "li" ).not( ":even" ).css( "background-color", "red" );
+     // $( ".stoitem, tr:contains('201')" ).show('tr');
+      //$( "td:contains('20190')" ).show();
